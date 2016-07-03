@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import redis.clients.jedis.*;
@@ -23,6 +24,9 @@ public class BasicClientTest {
 
     @Autowired
     JedisConnectionFactory jedisConnectionFactory;
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
     protected Injector injector = Guice.createInjector(new AbstractModule() {
         @Override
@@ -130,5 +134,30 @@ public class BasicClientTest {
         String pong = redisConnection.ping();
         Assert.assertEquals("PONG", pong);
         redisConnection.close();
+    }
+
+    @Test
+    public void testSpringDataWrite() {
+
+        String key = UUID.randomUUID().toString();
+        String value = UUID.randomUUID().toString();
+
+        RedisConnection redisConnection = jedisConnectionFactory.getConnection();
+        redisConnection.set(key.getBytes(), value.getBytes());
+
+        Assert.assertTrue(jedisConnectionFactory.getConnection().exists(key.getBytes()));
+        Assert.assertEquals(value, new String(redisConnection.get(key.getBytes())));
+    }
+
+    @Test
+    public void testStringRedisTemplate() {
+
+        String key = UUID.randomUUID().toString();
+        String value = UUID.randomUUID().toString();
+
+        redisTemplate.opsForValue().set(key, value);
+
+        Assert.assertTrue(redisTemplate.getConnectionFactory().getConnection().exists(key.getBytes()));
+        Assert.assertEquals(value, redisTemplate.opsForValue().get(key));
     }
 }
