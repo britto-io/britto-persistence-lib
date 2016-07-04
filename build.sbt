@@ -11,6 +11,7 @@ libraryDependencies ++= Seq(
   "junit" % "junit" % "4.12" % "test",
   "com.novocode" % "junit-interface" % "0.11" % "test",
   "com.google.inject" % "guice" % "4.1.0",
+  "com.google.guava" % "guava" % "19.0",
   "redis.clients" % "jedis" % "2.8.1",
   "org.apache.commons" % "commons-pool2" % "2.0",
   "com.google.guava" % "guava" % "18.0",
