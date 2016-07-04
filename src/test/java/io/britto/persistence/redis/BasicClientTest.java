@@ -18,7 +18,7 @@ import java.util.UUID;
  * Created by tfulton on 6/29/16.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/britto-persistence-test.xml")
+@ContextConfiguration("/britto-persistence-test-context.xml")
 public class BasicClientTest {
 
     @Autowired

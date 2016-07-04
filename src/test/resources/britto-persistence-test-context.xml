@@ -13,6 +13,6 @@
     <context:property-placeholder location="classpath:test.properties" order="1"
                                   ignore-unresolvable="true" system-properties-mode="OVERRIDE"/>
 
-    <import resource="britto-persistence.xml"/>
+    <import resource="britto-persistence-context.xml"/>
 
 </beans>
