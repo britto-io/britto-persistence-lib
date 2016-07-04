@@ -1,6 +1,6 @@
 name := "akka-java-seed"
 
-version := "1.0"
+version := "1.0.0"
 
 scalaVersion := "2.11.7"
 val springVersion = "4.2.6.RELEASE"
