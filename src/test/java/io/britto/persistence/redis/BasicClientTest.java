@@ -1,7 +1,6 @@
 package io.britto.persistence.redis;
 
 import com.google.inject.*;
-import com.google.inject.name.Named;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ import java.util.UUID;
  * Created by tfulton on 6/29/16.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/britto-persistence-context.xml")
+@ContextConfiguration("/britto-persistence-test.xml")
 public class BasicClientTest {
 
     @Autowired

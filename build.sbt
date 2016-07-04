@@ -30,5 +30,6 @@ libraryDependencies ++= Seq(
 
 )
 
-unmanagedClasspath in Runtime += baseDirectory.value.getParentFile.getParentFile  / "conf"
+unmanagedClasspath in Runtime += baseDirectory.value / "conf"
+unmanagedClasspath in Test += baseDirectory.value / "conf"
   
