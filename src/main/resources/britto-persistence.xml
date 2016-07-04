@@ -10,6 +10,9 @@
 
     <context:property-placeholder location="classpath:britto.conf" order="0" ignore-unresolvable="true"/>
 
+    <context:annotation-config/>
+    <context:component-scan base-package="io.britto"></context:component-scan>
+
     <!-- Jedis ConnectionFactory -->
     <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
           p:use-pool="true" p:host-name="${britto.redis.host}" p:port="${britto.redis.port}"/>

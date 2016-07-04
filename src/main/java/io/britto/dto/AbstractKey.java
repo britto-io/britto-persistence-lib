@@ -9,6 +9,14 @@ public abstract class AbstractKey
     private String merchantId;
     private String objectId;
 
+    public AbstractKey() {
+    }
+
+    protected AbstractKey(String merchantId, String objectId) {
+        this.merchantId = merchantId;
+        this.objectId = objectId;
+    }
+
     @Override
     public String getMerchantId() {
         return merchantId;

@@ -12,7 +12,7 @@ public interface Persistence<K, V> {
      * @param data
      * @return
      */
-    V save(K key, V data);
+    void save(K key, V data);
 
     /**
      * Read a data object from a store.
@@ -21,15 +21,6 @@ public interface Persistence<K, V> {
      * @return
      */
     V read(K key);
-
-    /**
-     * Update a data object kept in a store.
-     *
-     * @param key
-     * @param data
-     * @return
-     */
-    V update(K key, V data);
 
     /**
      * Remove a data object from a store.
